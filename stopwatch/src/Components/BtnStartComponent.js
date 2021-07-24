@@ -17,7 +17,14 @@ class BtnStartComponent extends Component
         this.setState(state => ({
             active: !state.active
         }));
+    }
 
+    stopTime(){
+        alert('Time stopped');
+    }
+
+    startTime(){
+        alert("Time started");
     }
 
     render()
@@ -26,7 +33,7 @@ class BtnStartComponent extends Component
         {
             return (
                 <button type="button" className="btn btn-danger"
-                        onClick={this.handleClick}>
+                        onClick={function(){this.handleClick(); this.stopTime();}.bind(this)}>
                     Stop{this.state.active}
                 </button>
             );
@@ -35,8 +42,8 @@ class BtnStartComponent extends Component
         else {
             return (
                 <button type="button" className="btn btn-danger"
-                        onClick={this.handleClick}>
-                        Start{this.state.active}
+                        onClick={function(){this.handleClick(); this.startTime();}.bind(this)}>
+                    Start{this.state.active}
                 </button>
             );
         }
