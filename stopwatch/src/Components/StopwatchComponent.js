@@ -112,7 +112,7 @@ class StopwatchComponent extends Component
                         {!this.state.active ? 'Start' : 'Stop'}
                     </button>
 
-                    <button type="button" className="btn btn-warning" onClick={this.wait}>Wait</button>
+                    <button type="button" className="btn btn-warning" onDoubleClick={this.wait}>Wait</button>
                     <button type="button" className="btn btn-danger" onClick={this.resetTime}>Reset</button>
                 </div>
             </div>
