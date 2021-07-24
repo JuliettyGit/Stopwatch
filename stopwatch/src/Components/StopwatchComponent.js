@@ -58,16 +58,16 @@ class StopwatchComponent extends Component
 
     startTime()
     {
-            this.state.timeSub = timer(0, 1000).subscribe(
-                () => this.setState({seconds: (this.state.seconds+1)})
-            )
+        this.state.timeSub = timer(0, 1000).subscribe(
+            () => this.setState({seconds: (this.state.seconds+1)})
+        )
 
         return this.state.seconds;
     }
 
     stopTime(){
         this.state.timeSub.unsubscribe(() =>
-                this.setState({seconds: (this.state.seconds)})
+            this.setState({seconds: (this.state.seconds)})
         );
         this.resetTime();
         console.log(this.state.timeSub);
@@ -98,27 +98,25 @@ class StopwatchComponent extends Component
 
     render()
     {
-            return (
-                <div className={'container bg-dark ' +
-                                'mt-5 p-3 ' +
-                                'shadow p-3 rounded'}>
-                    <div className={'text-white h1 mb-3'}>
-                        {this.getMinutes()}:{this.getSeconds()}
-                    </div>
-                    <div className="btn-group mt-3 mb-2" role="group">
-
-                        {/*<BtnStartComponent/>*/}
-
-                        <button type="button" className="btn btn-success"
-                                onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>
-                            {!this.state.active ? 'Start' : 'Stop'}
-                        </button>
-
-                        <button type="button" className="btn btn-warning" onClick={this.wait}>Wait</button>
-                        <button type="button" className="btn btn-danger" onClick={this.resetTime}>Reset</button>
-                    </div>
+        return (
+            <div className={'container bg-dark ' +
+            'mt-5 p-3 ' +
+            'shadow p-3 rounded'}>
+                <div className={'text-white h1 mb-3'}>
+                    {this.getMinutes()}:{this.getSeconds()}
                 </div>
-            );
+                <div className="btn-group mt-3 mb-2" role="group">
+
+                    <button type="button" className="btn btn-success"
+                            onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>
+                        {!this.state.active ? 'Start' : 'Stop'}
+                    </button>
+
+                    <button type="button" className="btn btn-warning" onClick={this.wait}>Wait</button>
+                    <button type="button" className="btn btn-danger" onClick={this.resetTime}>Reset</button>
+                </div>
+            </div>
+        );
     }
 }
 
