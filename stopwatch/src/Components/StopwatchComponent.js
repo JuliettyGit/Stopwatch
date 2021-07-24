@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BtnStartComponent from "./BtnStartComponent";
+import {timer} from 'rxjs';
 
 class StopwatchComponent extends Component
 {
@@ -12,6 +13,7 @@ class StopwatchComponent extends Component
         };
 
         this.getSeconds = this.getSeconds.bind(this);
+        this.startTime = this.startTime.bind(this);
         this.getMinutes = this.getMinutes.bind(this);
     }
 
@@ -23,6 +25,17 @@ class StopwatchComponent extends Component
         return Math.floor(this.state.seconds / 60);
     }
 
+    // getHours(){
+    //     return Math.floor(this.state.seconds / 3600);
+    // }
+
+    startTime()
+    {
+        timer(0, 1000).subscribe(
+            seconds => this.setState({seconds: this.state.seconds+1})
+        )
+        return this.state.seconds;
+    }
 
     render()
     {
