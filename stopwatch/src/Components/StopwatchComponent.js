@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import BtnStartComponent from "./BtnStartComponent";
 import {timer} from 'rxjs';
 
 class StopwatchComponent extends Component
@@ -16,10 +15,12 @@ class StopwatchComponent extends Component
 
         this.getSeconds = this.getSeconds.bind(this);
         this.getMinutes = this.getMinutes.bind(this);
-        // this.startTime = this.startTime.bind(this);
-        // this.stopTime = this.stopTime.bind(this);
-        this.setTime = this.setTime.bind(this);
+
         this.handleClick = this.handleClick.bind(this);
+
+        this.setTime = this.setTime.bind(this);
+        this.startTime = this.startTime.bind(this);
+        this.stopTime = this.stopTime.bind(this);
 
         this.wait = this.wait.bind(this);
         this.resetTime = this.resetTime.bind(this);
@@ -98,21 +99,23 @@ class StopwatchComponent extends Component
     render()
     {
             return (
-                <div className={'container bg-dark mt-5 p-3'}>
-                    <div className={'text-white h3 mb-3'}>
+                <div className={'container bg-dark ' +
+                                'mt-5 p-3 ' +
+                                'shadow p-3 rounded'}>
+                    <div className={'text-white h1 mb-3'}>
                         {this.getMinutes()}:{this.getSeconds()}
                     </div>
-                    <div className="btn-group" role="group">
+                    <div className="btn-group mt-3 mb-2" role="group">
 
                         {/*<BtnStartComponent/>*/}
 
-                        <button type="button" className="btn btn-danger"
+                        <button type="button" className="btn btn-success"
                                 onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>
                             {!this.state.active ? 'Start' : 'Stop'}
                         </button>
 
                         <button type="button" className="btn btn-warning" onClick={this.wait}>Wait</button>
-                        <button type="button" className="btn btn-success" onClick={this.resetTime}>Reset</button>
+                        <button type="button" className="btn btn-danger" onClick={this.resetTime}>Reset</button>
                     </div>
                 </div>
             );
