@@ -9,9 +9,8 @@ class StopwatchComponent extends Component
         super(props);
 
         this.state = {
-            seconds: 0,
+            seconds: 765,
             active: false,
-            timeSub: false,
         };
 
         this.getSeconds = this.getSeconds.bind(this);
@@ -22,7 +21,6 @@ class StopwatchComponent extends Component
         this.setTime = this.setTime.bind(this);
         this.startTime = this.startTime.bind(this);
         this.stopTime = this.stopTime.bind(this);
-
         this.wait = this.wait.bind(this);
         this.resetTime = this.resetTime.bind(this);
     }
@@ -37,9 +35,9 @@ class StopwatchComponent extends Component
         return Math.floor(this.state.seconds / 60);
     }
 
-    // getHours(){
-    //     return Math.floor(this.state.seconds / 3600);
-    // }
+    getHours(){
+        return Math.floor(this.state.seconds / 3600);
+    }
 
     handleClick(){
         this.setState(state => ({
@@ -64,10 +62,6 @@ class StopwatchComponent extends Component
         this.subscription = timer(0, 1000).subscribe(
             () => this.setState({seconds: (this.state.seconds+1)})
         )
-
-        this.setState(state => ({
-            timeSub: !state.timeSub
-        }));
 
         return this.state.seconds;
     }
@@ -108,7 +102,7 @@ class StopwatchComponent extends Component
         return (
             <div  className={'neo container mt-5 p-3 rounded'}>
                 <div className={'neo-color h1 mb-3'}>
-                    {this.getMinutes()}:{this.getSeconds()}
+                    {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
                 </div>
                     <button type="button" className="btn-lg btn-violet border-0 neo-sm mx-3"
                             onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>

@@ -4,7 +4,6 @@
     <list default="true" id="e047e147-f22d-4862-91db-9bdec51ce99c" name="Default Changelist" comment="Styles changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stopwatch/src/Components/StopwatchComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/stopwatch/src/Components/StopwatchComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stopwatch/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/stopwatch/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627121105202</updated>
-      <workItem from="1627121107154" duration="23364000" />
+      <workItem from="1627121107154" duration="24643000" />
     </task>
     <task id="LOCAL-00001" summary="Btn start\stop + time shown">
       <created>1627124147561</created>
@@ -137,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627173560724</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Styles changed">
+      <created>1627174310462</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1627174310462</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
