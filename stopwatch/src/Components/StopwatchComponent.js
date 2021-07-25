@@ -5,12 +5,13 @@ class StopwatchComponent extends Component
 {
     constructor(props)
     {
+
         super(props);
 
         this.state = {
             seconds: 0,
             active: false,
-            timeSub: ''
+            timeSub: false,
         };
 
         this.getSeconds = this.getSeconds.bind(this);
@@ -25,6 +26,8 @@ class StopwatchComponent extends Component
         this.wait = this.wait.bind(this);
         this.resetTime = this.resetTime.bind(this);
     }
+
+    subscription;
 
     getSeconds(){
         return ('0' + this.state.seconds % 60).slice(-2);
@@ -58,7 +61,7 @@ class StopwatchComponent extends Component
 
     startTime()
     {
-        this.state.timeSub = timer(0, 1000).subscribe(
+        this.subscription = timer(0, 1000).subscribe(
             () => this.setState({seconds: (this.state.seconds+1)})
         )
 
@@ -66,17 +69,17 @@ class StopwatchComponent extends Component
     }
 
     stopTime(){
-        this.state.timeSub.unsubscribe(() =>
+        this.subscription.unsubscribe(() =>
             this.setState({seconds: (this.state.seconds)})
         );
         this.resetTime();
-        console.log(this.state.timeSub);
         this.handleClick();
+
         return this.state.seconds;
     }
 
     wait(){
-        this.state.timeSub.unsubscribe(() =>
+        this.subscription.unsubscribe(() =>
             this.setState({seconds: (this.state.seconds)})
         );
         if(this.state.active)
@@ -86,7 +89,7 @@ class StopwatchComponent extends Component
     }
 
     resetTime(){
-        this.state.timeSub.unsubscribe(() =>
+        this.subscription.unsubscribe(() =>
             this.setState({seconds: (this.state.seconds)})
         );
         this.setState({seconds: 0})
@@ -99,23 +102,18 @@ class StopwatchComponent extends Component
     render()
     {
         return (
-            <div className={'container bg-dark ' +
-            'mt-5 p-3 ' +
-            'shadow p-3 rounded'}>
-                <div className={'text-white h1 mb-3'}>
+            <div  className={'neo container mt-5 p-3 rounded'}>
+                <div className={'neo-color h1 mb-3'}>
                     {this.getMinutes()}:{this.getSeconds()}
                 </div>
-                <div className="btn-group mt-3 mb-2" role="group">
-
-                    <button type="button" className="btn btn-success"
+                    <button type="button" className="btn btn-lg btn-violet border-0 neo-sm mx-3"
                             onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>
                         {!this.state.active ? 'Start' : 'Stop'}
                     </button>
 
-                    <button type="button" className="btn btn-warning" onDoubleClick={this.wait}>Wait</button>
-                    <button type="button" className="btn btn-danger" onClick={this.resetTime}>Reset</button>
+                    <button type="button" className="btn btn-lg btn-purple border-0 neo-sm mx-3" onDoubleClick={this.wait}>Wait</button>
+                    <button type="button" className="btn btn-lg btn-pink border-0 neo-sm mx-3" onClick={this.resetTime}>Reset</button>
                 </div>
-            </div>
         );
     }
 }

@@ -1,0 +1,36 @@
+.neo{
+    box-shadow:  5px 5px 15px #bebebe,
+    -5px -5px 15px #ffffff;
+    border-color: #bebebe;
+    border-radius: 5px;
+}
+
+.neo-sm{
+    box-shadow:  3px 3px 10px #bebebe,
+    -3px -3px 10px #ffffff;
+    border-color: #bebebe;
+    border-radius: 5px;
+}
+.btn:hover{
+    color: black;
+    background: #e0e0e0;
+    box-shadow: inset 3px 3px 10px #bebebe,
+    inset -3px -3px 10px #ffffff;
+}
+
+.neo-color{
+    background-color: #e0e0e0;
+    color: #62b0b1;
+}
+.btn-violet{
+    color: #6045c4;
+
+}
+
+.btn-purple{
+    color: #9e55bb;
+}
+
+.btn-pink{
+    color: #d83e87;
+}
