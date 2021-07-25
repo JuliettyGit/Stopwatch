@@ -8,11 +8,13 @@
 .neo-sm{
     box-shadow:  3px 3px 10px #bebebe,
     -3px -3px 10px #ffffff;
+    background-color: #e0e0e0;
     border-color: #bebebe;
     border-radius: 5px;
 }
-.btn:hover{
-    color: black;
+
+.btn-lg:hover{
+    color: #1d1d1d;
     background: #e0e0e0;
     box-shadow: inset 3px 3px 10px #bebebe,
     inset -3px -3px 10px #ffffff;
@@ -22,6 +24,7 @@
     background-color: #e0e0e0;
     color: #62b0b1;
 }
+
 .btn-violet{
     color: #6045c4;
 

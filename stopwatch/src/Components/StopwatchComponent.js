@@ -65,6 +65,10 @@ class StopwatchComponent extends Component
             () => this.setState({seconds: (this.state.seconds+1)})
         )
 
+        this.setState(state => ({
+            timeSub: !state.timeSub
+        }));
+
         return this.state.seconds;
     }
 
@@ -106,13 +110,13 @@ class StopwatchComponent extends Component
                 <div className={'neo-color h1 mb-3'}>
                     {this.getMinutes()}:{this.getSeconds()}
                 </div>
-                    <button type="button" className="btn btn-lg btn-violet border-0 neo-sm mx-3"
+                    <button type="button" className="btn-lg btn-violet border-0 neo-sm mx-3"
                             onClick={function(){this.handleClick(); this.setTime();}.bind(this)}>
                         {!this.state.active ? 'Start' : 'Stop'}
                     </button>
 
-                    <button type="button" className="btn btn-lg btn-purple border-0 neo-sm mx-3" onDoubleClick={this.wait}>Wait</button>
-                    <button type="button" className="btn btn-lg btn-pink border-0 neo-sm mx-3" onClick={this.resetTime}>Reset</button>
+                    <button type="button" className="btn-lg btn-purple border-0 neo-sm mx-3" onDoubleClick={this.wait}>Wait</button>
+                    <button type="button" className="btn-lg btn-pink border-0 neo-sm mx-3" onClick={this.resetTime}>Reset</button>
                 </div>
         );
     }
